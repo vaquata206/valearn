@@ -28,19 +28,19 @@ async function insertQuestion(data, courceCode){
 	$form.find("[name='cource']").val(courceCode);
 	$form.find("[name='action']").val("insert");
 	$form.find("[name='question']").val(data.q || "");
-	var idxCorrect = -1;
+	var idxCorrect = '';
 	for (var i = 0; i < 7; i++){
 		var answer = '';
 		if (i < data.a.length){
 			answer = data.a[i].answer;
 			if (data.a[i].isCheck){
-				idxCorrect = i;
+				idxCorrect = idxCorrect + ' ' + i;
 			}
 		}
 		$form.find("[name='answer" + (i + 1) + "']").val(answer);
 	}
 	console.log("insert q:" + data.q || "");
-	$form.find("[name='correct']").val(idxCorrect >= 0? idxCorrect : '');
+	$form.find("[name='correct']").val(idxCorrect.trim());
 	await sendToGoogleSheet();
 	console.log("success q:" + data.q || "");
 }
@@ -77,10 +77,14 @@ function search(q, courceCode){
 			var $item = $resultTemplate.clone();
 			$item.find(".valearn-item-question").html('Câu ' + (i + 1) + ' : ' + data.data[i][0]);
 			var cr = '';
-			var idxCr = data.data[i][1];
-			if (idxCr >= 0 && idxCr <= 8){
-				cr = data.data[i][idxCr + 2];
+			var idxCr = (data.data[i][1] + '').split(' ');
+			for (var j = 0; j < idxCr.length; j++){
+				var jint = parseInt(idxCr[j]);
+				if (jint >= 0 && jint <= 8){
+					cr += '<br />['+ (j + 1) +']' + data.data[i][jint + 2];
+				}
 			}
+			
 			$item.find(".valearn-answer-correct").html('Đáp án: ' + cr);
 			$results.append($item);
 		}
