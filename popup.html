@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Valearn Extension</title>
+		<style>
+			.valearn-answer-correct{
+				font-weight: bold;
+				margin-left: 10px;
+			}
+		</style>
+    </head>
+    <body>
+        <div class="wrapper" style='width: 500px'>
+			<p><strong>Valearn extension</strong></p>
+			<div>
+				<input id='valearn-search-box' type='text' style='width: 380px'/>
+				<button type='button' id='valearn-btn-search' style='width: 100px'>Search</button>
+				<select id='valearn-cource-box' style='width: 100%; margin-top: 5px'>
+					<option value='khac'>Khác</option>
+					<option value='vanhoavnpt'>Năng lực cốt lõi dành cho nhân viên; Văn hóa VNPT; Giao tiếp khách hàng</option>
+					<option value='attt'>An toàn bảo mật thông tin</option>
+					<option value='laptrinh'>Kiến thức về kỹ thuật lập trình</option>
+					<option value='congnghe40'>Xu hướng công nghệ 4.0 và công nghệ AI, Blockchain, BigData, CloudComputing</option>
+					<option value='dichvucntt'>Quy trình cung cấp sản phẩm dịch vụ CNTT</option>
+					<option value='hedieuhanh'>Windows server, Linux (hệ CSDL Orcele, SQL Server, MySQL)</option>
+				</select>
+			</div>
+			</p><button id="valearn-btn-learn">Learn</button>
+			<span style='float: right'>A extension created by Vaquata - Version: 1.0.0</span>
+			<div class='valearn-results'>
+				<div class='valearn-item'>
+					<p class='valearn-item-question'>Câu: dslkfjsdlfjsdifj</p>
+					<p class='valearn-answer-correct'>Đáp án: sfsfsdfsdf</p>
+				</div>
+			</div>
+        </div>
+		<form name="google-sheet" method="POST" style="display: none">
+			<input type="text" name="cource" class="form-control" value="vanhoavnpt" />
+			<input type="text" name="action" />
+            <input type="text" name="question" />
+            <input type="text" name="correct" />
+            <input type="text" name="answer1" />
+            <input type="text" name="answer2" />
+            <input type="text" name="answer3" />
+            <input type="text" name="answer4" />
+		</form>
+    </body>
+	<script src="./scripts/jquery.js"></script>
+	<script src="./scripts/popup.js"></script>
+</html>

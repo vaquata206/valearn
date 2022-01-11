@@ -1,0 +1,27 @@
+{
+    "name": "Valearn Extension",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description" : "A extension created by vaquata",
+    "browser_action": {
+        "default_title": "Valearn Extension",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://elearning.vnpt.vn/course/enjoin?*"
+            ],
+            "js": [
+				"scripts/jquery.js",
+                "scripts/content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "permissions": [
+        "clipboardWrite",
+        "storage",
+		"tabs"
+    ]
+}
