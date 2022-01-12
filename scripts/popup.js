@@ -111,6 +111,12 @@ function getCourceCode(courceName){
 	if (courceName.indexOf('Bài thi thử Các hệ điều hành cho máy chủ Windows server, Linux (hệ CSDL Orcele, SQL Server, MySQL)') >=0 ){
 		return 'hedieuhanh'; 
 	}
+	if (courceName.indexOf('Bài thi thử Các SP – DV Viễn thông và CNTT của VNPT') >=0 ){
+		return 'spdvcntt'; 
+	}
+	if (courceName.indexOf('Bài thi thử Kiến thức về Cơ sở dữ liệu Oracle') >=0 ){
+		return 'csdloracle'; 
+	}
 	return 'khac';
 }
 
