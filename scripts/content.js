@@ -44,7 +44,14 @@ window.onload = function () {
             for (var j = 0; j < $answers.length; j++) {
                 var $a = $answers.eq(j);
                 var lb = $a.find(".stt").text();
-                var isCheck = $a.find(".iradio_square-blue").hasClass("checked");
+				
+				var isCheck = false;
+				if ($a.find(".iradio_square-blue").length > 0){
+					isCheck = $a.find(".iradio_square-blue").hasClass("checked");
+				}else if ($a.find(".icheckbox_square-blue").length > 0){
+					isCheck = $a.find(".icheckbox_square-blue").hasClass("checked");
+				}
+				
                 var answerString = $a.find(".question-option").html();
                 if (isCheck) {
                     str += "[" + lb + "]: " + answerString
